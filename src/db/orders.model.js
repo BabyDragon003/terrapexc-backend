@@ -1,4 +1,3 @@
-const { ORDER_TYPE } = require('../utils/constants');
 
 module.exports = (mongoose) => {
     const Order = mongoose.model(

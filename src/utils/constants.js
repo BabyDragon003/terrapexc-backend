@@ -1,4 +1,3 @@
-const ORDER_SIDE = {
   ALL: 'all',
   BUY: 'buy',
   SELL: 'sell'
