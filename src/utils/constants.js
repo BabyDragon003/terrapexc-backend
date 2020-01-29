@@ -1,3 +1,4 @@
+const ORDER_SIDE = {
   ALL: 'all',
   BUY: 'buy',
   SELL: 'sell'
@@ -7,17 +8,6 @@ const ORDER_TYPE = {
   ALL: 0,
   LIMIT: 1,
   MARKET: 2,
-}
-
-const SORT_TYPE = {
-  NONE: "none",
-  ASC: "asc",
-  DESC: "desc",
-}
-
-const STATUS_TYPE = {
-  ALL: 0,
-  OPEN: 1,
   COMPLETED: 2,
   CANCELED: 3
 }
