@@ -3,16 +3,26 @@ const { ORDER_SIDE, SORT_TYPE, SORT_FIELD, STATUS_TYPE, RETURN_STATUS } = requir
 const Orders = db.Orders;
 
 const revertRemoveOrders = async (remove_orders) => {
-  for (var i = 0; i < remove_orders.length; i++) {
-    var remove_order = remove_orders[i];
-    const data = await Orders.findById(remove_order._id);
-    if (data) {
-      data.current_stock_amount = remove_order.current_stock_amount;
-      await data.save();
     }
   }
 }
 
+exports.revertOrders = async (req, res) => {
+  try {
+    var status = req.body.status;
+    var add_order = req.body.add_order;
+    var update_match_order = req.body.update_match_order;
+    var remove_match_orders = req.body.remove_match_orders ?? [];
+    var log_order = req.body.log_order;
+    if (status == RETURN_STATUS.ADD || status == RETURN_STATUS.ADD_REMOVE) {
+      const data = await Orders.findByIdAndRemove(add_order._id);
+      if (!data) {
+        return res.send({ code: 0, message: "revert add fail" });
+      }
+    }
+
+    if (
+      status == RETURN_STATUS.UPDATE ||
       status == RETURN_STATUS.UPDATE_REMOVE
     ) {
       const data = await Orders.findById(update_match_order._id);
