@@ -1,4 +1,3 @@
-const db = require("../../db");
 const { ORDER_SIDE, SORT_TYPE, SORT_FIELD, STATUS_TYPE, RETURN_STATUS } = require("../../utils/constants");
 const Orders = db.Orders;
 
