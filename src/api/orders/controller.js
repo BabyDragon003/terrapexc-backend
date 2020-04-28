@@ -1,13 +1,8 @@
+const db = require("../../db");
 const { ORDER_SIDE, SORT_TYPE, SORT_FIELD, STATUS_TYPE, RETURN_STATUS } = require("../../utils/constants");
 const Orders = db.Orders;
 
 const revertRemoveOrders = async (remove_orders) => {
-  for (var i = 0; i < remove_orders.length; i++) {
-    var remove_order = remove_orders[i];
-    const data = await Orders.findById(remove_order._id);
-    if (data) {
-      data.current_stock_amount = remove_order.current_stock_amount;
-      await data.save();
     }
   }
 }
